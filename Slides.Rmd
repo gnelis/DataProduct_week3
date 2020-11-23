@@ -1,13 +1,13 @@
 ---
-title: "GDPn Copper Price and Mining Rent - Chile"
+title: "GDP, Copper Price and Mineral Rents - Chile"
 author: "Gonzalo Nelis S."
 date: "22/11/2020"
 output: ioslides_presentation
 ---
 
-## R Markdown
+## Interactive Graph
 
-```{r plot, include = FALSE, message=FALSE,warning=FALSE}
+```{r plot, echo=FALSE, message=FALSE,warning=FALSE}
 library(plotly)
 
 data<-read.csv("FullData.txt")
@@ -19,25 +19,27 @@ ay <- list(
 )
 
 fig <- plot_ly(data, x = ~year)
-fig <- fig %>% add_trace(y = ~GDP, name = 'GDP growth',mode = 'lines') %>%
-                add_trace(y = ~Mining.Rent, name = 'Mining Rent',mode = 'lines') %>%
-                add_trace(y = ~Price, name = 'Copper Price',mode = 'lines', yaxis = "y2") %>%
+fig <- fig %>% add_trace(y = ~GDP, name = 'GDP growth (%)',mode = 'lines') %>%
+                add_trace(y = ~Mining.Rent, name = 'Mineral Rents (% of GDP)',mode = 'lines') %>%
+                add_trace(y = ~Price, name = 'Copper Price (cUSD/lb)',mode = 'lines', yaxis = "y2") %>%
     layout(
     title = "GDP growth, Mining Rent, Copper Price", yaxis2 = ay,
-    xaxis = list(title="x")
+    xaxis = list(title="Year")
   )
+fig
     
 ```
 
-```{r, echo=FALSE,message=FALSE,warning=FALSE}
-fig
-```
 
-## Source Code and Data
+## Conclusions, Source Code and Data
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+The correlation between the three variables seems low in the first years, but it becomes much more apparent from the early 2000s until the present days.
+
+- [Source Code](https://github.com/gnelis/DataProduct_week3)
+- [Copper Prices](https://www.cochilco.cl/Paginas/Estadisticas/Bases%20de%20Datos/Precio-de-los-Metales.aspx) (in spanish)
+- [GDP Growth and Mineral Rents](https://data.worldbank.org/country/chile)
+
+Thanks for watching!
 
 
 
