@@ -23,7 +23,7 @@ fig <- fig %>% add_trace(y = ~GDP, name = 'GDP growth (%)',mode = 'lines') %>%
                 add_trace(y = ~Mining.Rent, name = 'Mineral Rents (% of GDP)',mode = 'lines') %>%
                 add_trace(y = ~Price, name = 'Copper Price (cUSD/lb)',mode = 'lines', yaxis = "y2") %>%
     layout(
-    title = "GDP growth, Mining Rent, Copper Price", yaxis2 = ay,
+    title = "GDP growth, Mineral Rents, Copper Price", yaxis2 = ay,
     xaxis = list(title="Year")
   )
 fig
