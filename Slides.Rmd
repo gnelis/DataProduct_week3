@@ -1,0 +1,45 @@
+---
+title: "GDPn Copper Price and Mining Rent - Chile"
+author: "Gonzalo Nelis S."
+date: "22/11/2020"
+output: ioslides_presentation
+---
+
+## R Markdown
+
+```{r plot, include = FALSE, message=FALSE,warning=FALSE}
+library(plotly)
+
+data<-read.csv("FullData.txt")
+
+ay <- list(
+  overlaying = "y",
+  side = "right",
+  title = "CuPrice"
+)
+
+fig <- plot_ly(data, x = ~year)
+fig <- fig %>% add_trace(y = ~GDP, name = 'GDP growth',mode = 'lines') %>%
+                add_trace(y = ~Mining.Rent, name = 'Mining Rent',mode = 'lines') %>%
+                add_trace(y = ~Price, name = 'Copper Price',mode = 'lines', yaxis = "y2") %>%
+    layout(
+    title = "GDP growth, Mining Rent, Copper Price", yaxis2 = ay,
+    xaxis = list(title="x")
+  )
+    
+```
+
+```{r, echo=FALSE,message=FALSE,warning=FALSE}
+fig
+```
+
+## Source Code and Data
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+
+
+
+
